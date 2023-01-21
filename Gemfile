@@ -40,6 +40,8 @@ group :development, :test do
   gem 'database_cleaner-active_record'
 
   gem 'rails-controller-testing'
+
+  gem 'shoulda-matchers', '~> 2.5.0', require: false
 end
 
 group :development do
