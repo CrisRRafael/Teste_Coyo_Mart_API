@@ -8,9 +8,14 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  context "GET /products/id" do
-    it "return a correct product" do
+  describe "Post 'index'" do
+    it "retorna uma lista de produtos" do
+      product1 = Product.create(:description=>"Produto teste 01", :category=>"Categoria teste 01", :unit=>"Metro", :stock=>10, :price=>20)
+      product2 = Product.create(:description=>"Produto teste 02", :category=>"Categoria teste 02", :unit=>"Metro", :stock=>10, :price=>20)
+
+  
+      get 'index'
+      assigns(@products).size.should > 1
     end
-    
-    end
+  end
 end
