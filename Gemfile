@@ -42,6 +42,8 @@ group :development, :test do
   gem 'rails-controller-testing'
 
   gem 'shoulda-matchers', '~> 2.5.0', require: false
+
+  gem 'rspec-json_expectations'
 end
 
 group :development do
