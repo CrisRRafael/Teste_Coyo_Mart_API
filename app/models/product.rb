@@ -5,4 +5,7 @@ class Product < ApplicationRecord
   validates :category, presence: true
   validates :unit, presence: true
 
+  default_scope { order(price: :desc) }
+
+  scope :search, ->(query) {where("description like ?", "%#{query}%")}
 end

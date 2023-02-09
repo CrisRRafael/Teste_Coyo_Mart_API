@@ -2,8 +2,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :update, :destroy]
 
   # GET /products
-  def index
+  def index   
     @products = Product.all
+    @products = @products.search(params[:description]) if params[:description].present?
+    @products = @products.reorder("price #{params[:order]}") if params[:order].present?
+    # @products = @products.where("description LIKE ?", "%#{ params[:description]}%") if params[:description].present?
+ 
 
     render json: @products
   end
